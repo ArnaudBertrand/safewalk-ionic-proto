@@ -4,6 +4,7 @@
 node_modules/
 platforms/
 plugins/
+www/js/app.js
 
 .DS_STORE
 .idea
