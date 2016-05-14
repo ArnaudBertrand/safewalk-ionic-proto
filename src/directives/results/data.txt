@@ -1,0 +1,6 @@
+- profile image
+- profile username
+- rating
+- addr depart
+- addr arrive
+- date
