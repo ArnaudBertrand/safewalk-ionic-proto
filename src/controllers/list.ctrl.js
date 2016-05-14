@@ -1,4 +1,4 @@
-export function ListCtrl ($scope, Items, Auth, $ionicPopup) {
+export default function ListCtrl ($scope, Items, Auth, $ionicPopup) {
   $scope.items = Items;
   $scope.data = {};
 

@@ -1,13 +1,25 @@
 import items from './factory/items.factory';
 import auth from './factory/auth.factory';
 import ListCtrl from './controllers/list.ctrl';
+import {template} from './route/index';
 
+require('angular-ui-router');
+
+console.log(template);
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic', 'firebase'])
+angular.module('safewalk', ['ionic', 'firebase', 'ui.router'])
+    .config(function ($stateProvider, $urlRouterProvider) {
+      $urlRouterProvider.otherwise('/');
+
+      $stateProvider.state('index', {
+        url: '/',
+        template
+      })
+    })
     .run(function ($ionicPlatform) {
       $ionicPlatform.ready(function () {
         if (window.cordova && window.cordova.plugins.Keyboard) {
