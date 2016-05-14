@@ -1,17 +1,22 @@
 import angular from 'angular';
 require('./form.scss');
 
-function controller($scope, $cordovaDatePicker) {
+function controller($scope, $cordovaDatePicker, $state, $ionicHistory) {
     $scope.itinerary = {
         departure: '',
         arrival: '',
         day: moment(),
-        time: moment(),
-        user: ''
+        time: moment()
     };
 
     $scope.send = () => {
-        console.log($scope.itinerary);
+        $ionicHistory.nextViewOptions({
+            disableAnimate: true,
+            disableBack: true
+        });
+        $state.go('results', {
+            searchData: $scope.itinerary
+        });
     };
 
     $scope.pickADate = () => {

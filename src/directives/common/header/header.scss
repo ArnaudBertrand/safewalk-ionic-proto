@@ -22,6 +22,16 @@
 .bar.bar-header {
     height: 60px;
 
+    .logo {
+        height: 40px;
+        margin-top: 6px;
+        margin-left: 7px;
+    }
+
+    .button.button-icon {
+        color: #ffffff;
+    }
+
     h1.title {
         color: #ffffff;
         text-align: left;

@@ -2,7 +2,7 @@ import angular from 'angular';
 require('./card.scss');
 
 function controller($scope) {
-  console.log($scope)
+    
 }
 
 const template = `

@@ -74,6 +74,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 "currentAuth": ["Auth", function (Auth) {
                     return Auth.$requireAuth();
                 }]
+            },
+            params: {
+                searchData: {}
             }
         });
 
