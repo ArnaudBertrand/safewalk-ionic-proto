@@ -3,7 +3,13 @@ require('./header.scss');
 
 const template = `
 <div class="bar bar-header">
-  <h1 class="title">Trouver un safe walk</h1>
+   <div class="buttons">
+    icon
+  </div>
+  <h1 class="title">Trouver un Safe Walk</h1>
+  <div class="buttons">
+    <img class="profile-picture" ng-src="http://graph.facebook.com/{{$root.authData.facebook.id}}/picture?type=square">
+  </div>
 </div>
 `;
 
