@@ -1,18 +1,6 @@
 export const login = `
-<ion-header-bar class="top">
-    <h1 class="title">Items</h1>
-    <button class="button button-icon ion-plus" ng-click="addItem()">
-    </button>
-</ion-header-bar>
 <ion-view>
-    <h1>Hello world</h1>
-    <button class="button" ng-click="login()" ng-if="!$root.authData">Login</button>
-    <button class="button" ng-click="logout()" ng-if="$root.authData">Logout</button>
-    <ion-list>
-        <ion-checkbox ng-repeat="item in items | orderBy:'name' | filter:mine" ng-model="item.checked"
-                      ng-change="change(item)">{{item.name}}
-        </ion-checkbox>
-    </ion-list>
+    <login-page></login-page>
 </ion-view>
 `;
 
