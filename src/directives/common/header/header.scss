@@ -20,16 +20,17 @@
 
 
 .bar.bar-header {
-    height: 60px;
+    height: 65px;
 
     .logo {
         height: 40px;
+        width: 40px;
         margin-top: 6px;
         margin-left: 7px;
     }
 
-    .button.button-icon {
-        color: #ffffff;
+    .buttons.left {
+        margin-left: 10px;
     }
 
     h1.title {
@@ -37,6 +38,7 @@
         text-align: left;
         padding-left: 42px;
         margin-top: 8px;
+        margin-left: 40px;
     }
 
     .profile-picture {

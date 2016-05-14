@@ -26,11 +26,8 @@ const app = angular.module('safewalk', [
     'ionic',
     'firebase',
     'ui.router',
-<<<<<<< HEAD
+    'ngCordova',
     Chat,
-=======
-    "ngCordova",
->>>>>>> 1bd2862608242ae3a3f796865482c9bb8d9d300c
     Common,
     Results,
     Search,
@@ -84,6 +81,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 searchData: {}
             }
         });
+
     })
     .run(function ($ionicPlatform, Auth) {
         $ionicPlatform.ready(function () {

@@ -2,9 +2,17 @@ import angular from 'angular';
 require('./login.scss');
 
 const template = `
-<h1>Login</h1>
-<button class="button" ng-click="login()" ng-if="!$root.authData">Login</button>
-<button class="button" ng-click="logout()" ng-if="$root.authData">Logout</button>
+<div class="container">
+    <div class="block">
+        <img src="${require('./logo.png')}" />
+        <label class="item">
+            <button class="button button-block button-positive" ng-click="login()" ng-if="!$root.authData">
+            <i class="icon ion-social-facebook placeholder-icon"></i>
+            Login with Facebook
+            </button>
+        </label>
+    </div>
+</div>
 `;
 
 function controller($scope, Auth) {

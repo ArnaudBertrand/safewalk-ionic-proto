@@ -22,11 +22,10 @@ function controller($scope, $state, $ionicHistory) {
 
 const template = `
 <div class="bar bar-header">
-   <div class="buttons" ng-hide="mustDisplayBack()">
+  <div class="buttons left" ng-hide="mustDisplayBack()">
     <img src="img/logo.png" class="logo">
   </div>
-  <button class="button button-icon icon ion-android-arrow-back" ng-show="mustDisplayBack()" ng-click="back()"></button>
-  <h1 class="title">Trouver un Safe Walk</h1>
+  <h1 class="title">{{ $ctrl.text }}</h1>
   <div class="buttons">
     <img class="profile-picture" ng-src="http://graph.facebook.com/{{$root.authData.facebook.id}}/picture?type=square">
   </div>
@@ -38,13 +37,13 @@ const template = `
       <i class="icon ion-search"></i>
       Recherche
     </a>
-    <a class="tab-item" ng-class="{active: state.name == 'chat'}" ui-sref="chat" nav-transition="none">
-      <i class="icon ion-chatbubble-working"></i>
-      Chat
-    </a>
     <a class="tab-item" ng-class="{active: state.name == 'itineraries'}" ui-sref="itineraries" nav-transition="none">
       <i class="icon ion-map"></i>
       Mes itineraires
+    </a>
+    <a class="tab-item" ng-class="{active: state.name == 'chat'}" ui-sref="chat" nav-transition="none">
+      <i class="icon ion-chatbubble-working"></i>
+      Chat
     </a>
   </div>
 </div>
@@ -52,6 +51,9 @@ const template = `
 
 export default angular.module('app.directives.common.header', [])
     .component('commonHeader', {
+        bindings: {
+            text: '<'
+        },
         template,
         controller
     })
