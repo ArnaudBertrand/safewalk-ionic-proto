@@ -2,16 +2,15 @@ import angular from 'angular';
 require('./card.scss');
 
 const template = `
-<h1>Card content</h1>
+Date: {{ itinerary.date }}
 `;
 
-function Card() {
-  return {
-    template
-  };
-}
-
 const CardModule = angular.module('app.directives.results.card', [])
-    .directive('resultsCard', Card);
+    .component('resultsCard', {
+      bindings: {
+        itinerary: '<'
+      },
+      template
+    });
 
 export default CardModule.name;

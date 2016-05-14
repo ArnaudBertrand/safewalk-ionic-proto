@@ -7,7 +7,7 @@ export const login = `
 export const results = `
 <ion-view>
     <results-header></results-header>
-    <results-card></results-card>
+    <results-card-manager></results-card-manager>
 </ion-view>
 `;
 
