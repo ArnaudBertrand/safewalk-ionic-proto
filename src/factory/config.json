@@ -1,0 +1,52 @@
+{
+  "rules": {
+    ".read": true,
+    ".write": "auth != null",
+
+    "itineraries": {
+
+      ".validate": "newData.hasChildren(['departure', 'arrival', 'date', 'user'])",
+
+      "departure": { ".validate": "newData.hasChildren(['lat', 'lng', 'address'])" },
+      "arrival": { ".validate": "newData.hasChildren(['lat', 'lng', 'address'])" },
+      "date": {".validate": "newData.val() >= now"},
+      "user": {".validate": "true"},
+
+      "$other": { ".validate": false }
+
+    },
+
+    "messages": {
+
+      ".validate": "newData.hasChildren(['from', 'to', 'content', 'createdAt', 'read'])",
+
+      "from": {".validate": "true"},
+      "to": {".validate": "true"},
+      "content": { ".validate": "newData.isString() && newData.val().length > 0" },
+      "createdAt":  {".validate": "newData.val() < now"},
+      "read": {".validate": "newData.isBoolean()"}
+
+    },
+
+    "users": {
+
+      ".validate": "newData.hasChildren(['userId', 'firstname', 'lastname', 'email'])",
+
+      "userId": { ".validate": "true" },
+      "firstname": { ".validate": "true" },
+      "lastname": { ".validate": "true" },
+      "email": { ".validate": "true" }
+
+    },
+
+    "ratings": {
+
+      ".validate": "newData.hasChildren(['user', 'grade', 'comment'])",
+
+      "user": {".validate": "true"},
+      "grade": { ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 5" },
+      "comment": { ".validate": "newData.isString()" }
+
+    }
+  }
+}

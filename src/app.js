@@ -1,24 +1,46 @@
 import items from './factory/items.factory';
 import auth from './factory/auth.factory';
 import ListCtrl from './controllers/list.ctrl';
-import {template} from './route/index';
+import {login, search, results} from './route';
 
+require('./app.scss');
+
+/**
+ * Directives
+ */
+import Results from './directives/results';
+import Search from './directives/search';
 require('angular-ui-router');
-
-console.log(template);
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('safewalk', ['ionic', 'firebase', 'ui.router'])
-    .config(function ($stateProvider, $urlRouterProvider) {
+const app = angular.module('safewalk', [
+  'ionic',
+  'firebase',
+  'ui.router',
+  Results,
+  Search
+]);
+
+app.config(function ($stateProvider, $urlRouterProvider) {
       $urlRouterProvider.otherwise('/');
 
-      $stateProvider.state('index', {
+      $stateProvider.state('login', {
         url: '/',
-        template
-      })
+        template: login
+      });
+
+      $stateProvider.state('search', {
+        url: '/search',
+        template: search
+      });
+
+      $stateProvider.state('results', {
+        url: '/results',
+        template: results
+      });
     })
     .run(function ($ionicPlatform) {
       $ionicPlatform.ready(function () {
