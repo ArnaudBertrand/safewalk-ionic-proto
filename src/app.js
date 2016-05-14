@@ -11,6 +11,7 @@ require('./app.scss');
 /**
  * Directives
  */
+import Chat from './directives/chat';
 import Common from './directives/common';
 import Results from './directives/results';
 import Search from './directives/search';
@@ -21,6 +22,7 @@ const app = angular.module('safewalk', [
     'ionic',
     'firebase',
     'ui.router',
+    Chat,
     Common,
     Results,
     Search,
@@ -28,7 +30,7 @@ const app = angular.module('safewalk', [
 ]);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/chat');
 
         $stateProvider.state('chat', {
             url: '/chat',
@@ -75,7 +77,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 }]
             }
         });
-
     })
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {

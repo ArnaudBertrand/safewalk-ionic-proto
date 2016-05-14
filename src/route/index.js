@@ -1,7 +1,7 @@
 export const chat = `
 <ion-view>
     <common-header></common-header>
-    <h1>Chat hello world</h1>
+    <chat-manager></chat-manager>
 </ion-view>
 `;
 
