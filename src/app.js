@@ -95,7 +95,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         });
 
         $stateProvider.state('resultDetails', {
-            url: '/resultsDetails',
+            url: '/resultDetails',
             template: resultDetails,
             resolve: {
                 "currentAuth": ["Auth", function (Auth) {

@@ -25,7 +25,7 @@ export const results = `
 </ion-view>
 `;
 
-export const resultsDetails = `
+export const resultDetails = `
 <ion-view>
     <common-header text="'Trouver un Safe Walk'"></common-header>
     <result-details></result-details>

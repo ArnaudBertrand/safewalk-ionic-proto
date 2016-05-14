@@ -2,7 +2,7 @@ import angular from 'angular';
 require('./result-details.scss');
 
 const template = `
-<div class="container">Vous n'avez aucune discussion en cours...</div>
+<div class="container">Hello world res</div>
 `;
 
 const ResultDetailsModule = angular.module('app.directives.resultDetails', [])
