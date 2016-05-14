@@ -1,0 +1,30 @@
+results-card-manager {
+  background-color: #F6F6F6;
+  overflow: hidden;
+  height: 100%;
+  display: block;
+}
+
+results-card {
+  margin: 15px;
+  display: block;
+}
+
+.itin {
+  font-weight: lighter;
+  font-size: 20px;
+  color: #4a4a4a;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.datetime {
+  text-align: center;
+  font-weight: bold;
+  color: #4a4a4a;
+
+  .bullet {
+    color: #25d7ab;
+    vertical-align: middle;
+  }
+}

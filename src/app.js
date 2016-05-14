@@ -4,7 +4,7 @@ import ratings from './factory/ratings.factory';
 import users from './factory/users.factory';
 import auth from './factory/auth.factory';
 import ListCtrl from './controllers/list.ctrl';
-import {chat, login, search, results} from './route';
+import {chat, chatList, login, search, results} from './route';
 
 require('./app.scss');
 import moment from 'moment';
@@ -16,6 +16,7 @@ window.moment = moment;
  * Directives
  */
 import Chat from './directives/chat';
+import ChatList from './directives/chat-list';
 import Common from './directives/common';
 import Results from './directives/results';
 import Search from './directives/search';
@@ -28,6 +29,7 @@ const app = angular.module('safewalk', [
     'ui.router',
     'ngCordova',
     Chat,
+    ChatList,
     Common,
     Results,
     Search,
@@ -35,11 +37,21 @@ const app = angular.module('safewalk', [
 ]);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/chat');
+        $urlRouterProvider.otherwise('/');
 
         $stateProvider.state('chat', {
             url: '/chat',
             template: chat,
+            resolve: {
+              "currentAuth": ["Auth", function (Auth) {
+                return Auth.$requireAuth();
+              }]
+            }
+        });
+
+        $stateProvider.state('chatlist', {
+            url: '/chatlist',
+            template: chatList,
             resolve: {
               "currentAuth": ["Auth", function (Auth) {
                 return Auth.$requireAuth();

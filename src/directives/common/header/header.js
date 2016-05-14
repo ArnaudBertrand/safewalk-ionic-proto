@@ -41,7 +41,7 @@ const template = `
       <i class="icon ion-map"></i>
       Mes itineraires
     </a>
-    <a class="tab-item" ng-class="{active: state.name == 'chat'}" ui-sref="chat" nav-transition="none">
+    <a class="tab-item" ng-class="{active: state.name == 'chatlist'}" ui-sref="chatlist" nav-transition="none">
       <i class="icon ion-chatbubble-working"></i>
       Chat
     </a>

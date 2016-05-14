@@ -2,8 +2,8 @@ results-header, search-header {
   display: block;
 }
 
-body {
-  font-family: Roboto;
+body * {
+  font-family: Roboto !important;
 }
 
 ion-view {

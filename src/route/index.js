@@ -5,6 +5,13 @@ export const chat = `
 </ion-view>
 `;
 
+export const chatList = `
+<ion-view>
+    <common-header text="'Mes messages'"></common-header>
+    <chat-list></chat-list>
+</ion-view>
+`;
+
 export const login = `
 <ion-view>
     <login-page></login-page>
