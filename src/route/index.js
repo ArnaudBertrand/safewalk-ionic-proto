@@ -6,14 +6,14 @@ export const login = `
 
 export const results = `
 <ion-view>
-    <results-header></results-header>
+    <common-header></common-header>
     <results-card-manager></results-card-manager>
 </ion-view>
 `;
 
 export const search = `
 <ion-view>
-    <search-header></search-header>
+    <common-header></common-header>
     <search-form></search-form>
 </ion-view>
 `;

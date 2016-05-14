@@ -11,26 +11,23 @@ require('./app.scss');
 /**
  * Directives
  */
+import Common from './directives/common';
 import Results from './directives/results';
 import Search from './directives/search';
 import LoginPage from './directives/login';
 require('angular-ui-router');
-// Ionic Starter App
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
 const app = angular.module('safewalk', [
     'ionic',
     'firebase',
     'ui.router',
+    Common,
     Results,
     Search,
     LoginPage
 ]);
 
-app
-    .config(function ($stateProvider, $urlRouterProvider) {
+app.config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/');
 
         $stateProvider.state('login', {

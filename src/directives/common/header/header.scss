@@ -1,0 +1,19 @@
+/** Header **/
+.bar-header {
+  position: relative;
+  background-color: #25d7ab;
+}
+.tabs-top > .tabs {
+  color: #7e7e7e;
+  height: 72px;
+  border-bottom: 0;
+  position: initial;
+
+  .active {
+    color: #25d7ab;
+  }
+}
+
+.tabs-striped .tabs .tab-item.active {
+  border-color: #25d7ab;
+}

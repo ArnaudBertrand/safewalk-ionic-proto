@@ -24,13 +24,8 @@ const template = `
 </div>
 `;
 
-function Header() {
-  return {
-    template
-  };
-}
-
-const HeaderModule = angular.module('app.directives.results.header', [])
-    .directive('resultsHeader', Header);
-
-export default HeaderModule.name;
+export default angular.module('app.directives.common.header', [])
+    .component('commonHeader', {
+      template
+    })
+    .name;
