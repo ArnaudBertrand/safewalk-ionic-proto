@@ -1,8 +1,20 @@
-.bar-header {
-  background-color: #25d7ab;
-}
-
 results-header, search-header {
   display: block;
-  margin-bottom: 44px;
 }
+
+/** Header **/
+.bar-header {
+  position: relative;
+  background-color: #25d7ab;
+}
+.tabs-top > .tabs {
+  height: 72px;
+  border-bottom: 0;
+  position: initial;
+}
+
+.tabs-striped .tabs .tab-item.active {
+  border-color: #25d7ab;
+}
+
+
