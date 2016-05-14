@@ -1,3 +1,10 @@
+export const chat = `
+<ion-view>
+    <common-header></common-header>
+    <h1>Chat hello world</h1>
+</ion-view>
+`;
+
 export const login = `
 <ion-view>
     <login-page></login-page>
