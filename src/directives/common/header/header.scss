@@ -17,3 +17,34 @@
 .tabs-striped .tabs .tab-item.active {
   border-color: #25d7ab;
 }
+
+
+.bar.bar-header {
+    height: 60px;
+
+    .logo {
+        height: 40px;
+        margin-top: 6px;
+        margin-left: 7px;
+    }
+
+    .button.button-icon {
+        color: #ffffff;
+    }
+
+    h1.title {
+        color: #ffffff;
+        text-align: left;
+        padding-left: 42px;
+        margin-top: 8px;
+    }
+
+    .profile-picture {
+        width: 35px;
+        height: 35px;
+        border: 1px #ffffff solid;
+        border-radius: 100000px;
+        margin-top: 9px;
+        margin-right: 9px;
+    }
+}

@@ -1,27 +1,30 @@
 import angular from 'angular';
 require('./card-manager.scss');
 
-function controller ($scope) {
-  $scope.itineraries = [
-    {
-      departure: {lat: 100, long: 100, addr: '15 rue georges brassens, Nice'},
-      arrival:  {lat: 100, long: 100, addr: '15 rue georges brassens, Nice'},
-      date: new Date(),
-      user: {id: 'juliealone'}
-    },
-    {
-      departure: {lat: 100, long: 100, addr: '15 rue georges brassens, Nice'},
-      arrival:  {lat: 100, long: 100, addr: '15 rue georges brassens, Nice'},
-      date: new Date(),
-      user: {id: 'juliealone'}
-    },
-    {
-      departure: {lat: 100, long: 100, addr: '15 rue georges brassens, Nice'},
-      arrival:  {lat: 100, long: 100, addr: '15 rue georges brassens, Nice'},
-      date: new Date(),
-      user: {id: 'juliealone'}
-    }
-  ]
+function controller($scope, $stateParams) {
+
+    console.log('$stateParams', $stateParams.searchData);
+
+    $scope.itineraries = [
+        {
+            departure: {lat: 100, long: 100, addr: '15 rue georges brassens, Nice'},
+            arrival: {lat: 100, long: 100, addr: '15 rue georges brassens, Nice'},
+            date: new Date(),
+            user: {id: 'juliealone'}
+        },
+        {
+            departure: {lat: 100, long: 100, addr: '15 rue georges brassens, Nice'},
+            arrival: {lat: 100, long: 100, addr: '15 rue georges brassens, Nice'},
+            date: new Date(),
+            user: {id: 'juliealone'}
+        },
+        {
+            departure: {lat: 100, long: 100, addr: '15 rue georges brassens, Nice'},
+            arrival: {lat: 100, long: 100, addr: '15 rue georges brassens, Nice'},
+            date: new Date(),
+            user: {id: 'juliealone'}
+        }
+    ]
 }
 
 const template = `
@@ -32,8 +35,8 @@ const template = `
 
 const CardManagerModule = angular.module('app.directives.results.cardManager', [])
     .component('resultsCardManager', {
-      template,
-      controller
+        template,
+        controller
     });
 
 export default CardManagerModule.name;

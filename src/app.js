@@ -7,6 +7,10 @@ import ListCtrl from './controllers/list.ctrl';
 import {chat, login, search, results} from './route';
 
 require('./app.scss');
+import moment from 'moment';
+require('moment/locale/fr');
+
+window.moment = moment;
 
 /**
  * Directives
@@ -22,7 +26,11 @@ const app = angular.module('safewalk', [
     'ionic',
     'firebase',
     'ui.router',
+<<<<<<< HEAD
     Chat,
+=======
+    "ngCordova",
+>>>>>>> 1bd2862608242ae3a3f796865482c9bb8d9d300c
     Common,
     Results,
     Search,
@@ -61,11 +69,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 "currentAuth": ["Auth", function (Auth) {
                     return Auth.$requireAuth();
                 }]
-            },
-            controller: ['Auth', function (Auth) {
-                console.log('hey');
-                window.logout = Auth.$unauth;
-            }]
+            }
         });
 
         $stateProvider.state('results', {
@@ -75,10 +79,13 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 "currentAuth": ["Auth", function (Auth) {
                     return Auth.$requireAuth();
                 }]
+            },
+            params: {
+                searchData: {}
             }
         });
     })
-    .run(function ($ionicPlatform) {
+    .run(function ($ionicPlatform, Auth) {
         $ionicPlatform.ready(function () {
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -94,6 +101,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 StatusBar.styleDefault();
             }
         });
+
+        window.logout = Auth.$unauth;
+        // To use it when we need to logout
     })
     .factory('Auth', auth)
     .factory('Itineraries', itineraries)

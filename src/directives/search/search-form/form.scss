@@ -1,12 +1,39 @@
 .override.floating {
-  .icon {
-    padding-right: 18px;
-    position: absolute;
-    bottom: 9px;
-    left: 17px;
-  }
 
-  .input-label, input {
-    padding-left: 40px !important;
-  }
+    padding: 8px;
+
+    .icon {
+        padding-right: 18px;
+        position: absolute;
+        bottom: 9px;
+        left: 17px;
+        color: #979797;
+    }
+
+    .input-label, input {
+        padding-left: 40px !important;
+    }
+
+    input[disabled], input[readonly] {
+        background-color: initial;
+    }
+
+    .item {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-color: #979797;
+    }
+
+    .button.send {
+        background: #25d7ab;
+        font-weight: bold;
+        color: white;
+        float: right;
+        margin-top: 16px;
+    }
+
+    .overdiv {
+
+    }
 }
