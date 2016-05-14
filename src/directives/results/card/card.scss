@@ -4,6 +4,15 @@ results-card{
     width: 100%;
     box-shadow: 1px 2px 3px 0px #9b9b9b;
     border-radius: 4px;
+    position: relative;
+  }
+
+  .certified {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    right: -12px;
+    top: -5px;
   }
 
   /** Left **/
@@ -64,22 +73,14 @@ results-card{
     display: flex;
   }
   .rating {
-    margin-left: auto;
-
-    & > div {
-      margin-right: 5px;
-      white-space: nowrap;
-      line-height: 20px;
-      vertical-align: middle;
-      font-weight: bold;
-      color: #af8066;
-    }
+    margin-left: 10px;
+    color: #af8066;
+    vertical-align: middle;
 
     img {
       height: 20px;
       width: 20px;
-      vertical-align: middle;
-      margin-right: 5px;
+      vertical-align: -4px;
     }
   }
 }

@@ -13,6 +13,7 @@ function controller($scope, $stateParams) {
             age: '24 ans',
             percent: '61%',
             nbWalk: 3,
+            certified: true,
             image,
             rating: 45,
             emoticon: require('./3.png')

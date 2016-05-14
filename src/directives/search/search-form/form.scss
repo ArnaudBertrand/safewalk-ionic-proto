@@ -1,28 +1,56 @@
-.override.floating {
+search-form {
+  background-color: #F6F6F6;
+  overflow: hidden;
+  height: 100%;
+  display: block;
+
+  .override.floating {
 
     padding: 8px;
+    margin-right: 40px;
 
     .icon {
-        padding-right: 18px;
-        position: absolute;
-        bottom: 9px;
-        left: 17px;
-        color: #979797;
+      padding-right: 18px;
+      position: absolute;
+      bottom: 9px;
+      left: 17px;
+      color: #979797;
+      font-size: 1.5em;
+    }
+
+    .ion-pas {
+      background: url('./pas.png');
+      height: 35px;
+      width: 21px;
+      background-size: 21px 35px;
     }
 
     .input-label, input {
-        padding-left: 40px !important;
+      margin-left: 40px !important;
+    }
+
+    input {
+      border-bottom: 1px solid #979797;
+      width: calc(100% - 40px);
     }
 
     input[disabled], input[readonly] {
-        background-color: initial;
+      background-color: initial;
+    }
+
+    .line {
+      border-left: 1px solid #979797;
+      height: 30px;
+      width: 1px;
+      position: absolute;
+      top: 35px;
+      left: 10px;
+      overflow: visible;
     }
 
     .item {
-        border-top: none;
-        border-left: none;
-        border-right: none;
-        border-color: #979797;
+      border: none;
+      overflow: visible;
     }
 
     .button.send {
@@ -32,8 +60,5 @@
         float: right;
         margin-top: 16px;
     }
-
-    .overdiv {
-
-    }
+  }
 }

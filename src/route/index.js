@@ -20,8 +20,15 @@ export const login = `
 
 export const results = `
 <ion-view>
-    <common-header text=""></common-header>
+    <common-header text="'Trouver un Safe Walk'"></common-header>
     <results-card-manager></results-card-manager>
+</ion-view>
+`;
+
+export const resultsDetails = `
+<ion-view>
+    <common-header text="'Trouver un Safe Walk'"></common-header>
+    <result-details></result-details>
 </ion-view>
 `;
 

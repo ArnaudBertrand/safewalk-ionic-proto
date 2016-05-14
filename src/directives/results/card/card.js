@@ -7,6 +7,7 @@ function controller($scope) {
 
 const template = `
 <div class="container">
+  <img class="certified" src="${require('../../certification_small.png')}" ng-if="$ctrl.itinerary.certified" />
   <div class="left">
     <div class="score"><strong>{{ $ctrl.itinerary.percent }}</strong></div>
     <div class="text-score">de trajet commun</div>
@@ -19,15 +20,16 @@ const template = `
 
         <div class="profile-name">
           <div class="name">{{ $ctrl.itinerary.name }}</div>
-          <div class="age">{{ $ctrl.itinerary.age }}</div>
-        </div>
-
-        <div class="rating">
-            <div>
-              <img ng-src="{{ $ctrl.itinerary.emoticon }}" />{{ $ctrl.itinerary.rating }}        
-            </div>
+          <div class="age">
+            {{ $ctrl.itinerary.age }}
+            <span class="rating">
+              <img ng-src="{{ $ctrl.itinerary.emoticon }}" />
+              {{ $ctrl.itinerary.rating }}
+            </span>
+          </div>
         </div>
       </div>
+
       <div class="walk-nb" ng-if="$ctrl.itinerary.nbWalk ">Vous avez deja marche <strong>{{ $ctrl.itinerary.nbWalk }}</strong> fois ensemble</div>
       <div class="walk-nb" ng-if="!$ctrl.itinerary.nbWalk ">Vous n'avez jamais marche ensemble</div>
     </div>

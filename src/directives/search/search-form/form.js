@@ -4,9 +4,7 @@ require('./form.scss');
 function controller($scope, $cordovaDatePicker, $state, $ionicHistory) {
     $scope.itinerary = {
         departure: '',
-        arrival: '',
-        day: moment(),
-        time: moment()
+        arrival: ''
     };
 
     $scope.send = () => {
@@ -61,23 +59,23 @@ function controller($scope, $cordovaDatePicker, $state, $ionicHistory) {
 const template = `
 <div class="list override floating">
   <label class="item item-input item-floating-label">
-    <i class="icon ion-flag placeholder-icon"></i>
+    <i class="icon ion-pas placeholder-icon"><div class="line"></div></i>
     <span class="input-label">Depart</span>
     <input type="text" placeholder="Départ" ng-model="itinerary.departure">
   </label>
   <label class="item item-input item-floating-label">
-    <i class="icon ion-pinpoint placeholder-icon"></i>
+    <i class="icon ion-pas placeholder-icon"></i>
     <span class="input-label">Arrive</span>
     <input type="text" placeholder="Arrivée" ng-model="itinerary.arrival">
   </label>
   <label class="item item-input item-floating-label">
     <i class="icon ion-calendar placeholder-icon"></i>
-    <span class="input-label has-input">Date</span>
+    <span class="input-label">Date</span>
     <input type="text" placeholder="Date" ng-value="itinerary.day.format('dddd Do MMMM YYYY')" ng-readonly="true" ng-click="pickADate()">
   </label>
   <label class="item item-input item-floating-label">
     <i class="icon ion-clock placeholder-icon"></i>
-    <span class="input-label has-input">Time</span>
+    <span class="input-label">Time</span>
     <input type="text" placeholder="Heure de départ" ng-value="itinerary.time.format('HH:mm')" ng-readonly="true" ng-click="pickATime()">
   </label>
   <button class="button send" ng-click="send()">Trouver un co-walker</button>

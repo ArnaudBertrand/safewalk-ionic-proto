@@ -4,7 +4,7 @@ import ratings from './factory/ratings.factory';
 import users from './factory/users.factory';
 import auth from './factory/auth.factory';
 import ListCtrl from './controllers/list.ctrl';
-import {chat, chatList, login, search, results} from './route';
+import {chat, chatList, login, search, results, resultDetails} from './route';
 
 require('./app.scss');
 import moment from 'moment';
@@ -19,6 +19,7 @@ import Chat from './directives/chat';
 import ChatList from './directives/chat-list';
 import Common from './directives/common';
 import Results from './directives/results';
+import ResultDetails from './directives/result-details';
 import Search from './directives/search';
 import LoginPage from './directives/login';
 require('angular-ui-router');
@@ -32,13 +33,12 @@ const app = angular.module('safewalk', [
     ChatList,
     Common,
     Results,
+    ResultDetails,
     Search,
     LoginPage
 ]);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/');
-
         $stateProvider.state('chat', {
             url: '/chat',
             template: chat,
@@ -91,6 +91,16 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             },
             params: {
                 searchData: {}
+            }
+        });
+
+        $stateProvider.state('resultDetails', {
+            url: '/resultsDetails',
+            template: resultDetails,
+            resolve: {
+                "currentAuth": ["Auth", function (Auth) {
+                    return Auth.$requireAuth();
+                }]
             }
         });
 

@@ -9,3 +9,9 @@ body * {
 ion-view {
     background: #d8d8d8;
 }
+
+
+/** Fix whitepage ? **/
+.scroll {
+  transform: none !important;
+}
