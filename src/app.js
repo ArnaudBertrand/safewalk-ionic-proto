@@ -35,17 +35,38 @@ app
 
         $stateProvider.state('login', {
             url: '/',
-            template: login
+            template: login,
+            resolve: {
+                "currentAuth": ["Auth", '$q', function (Auth, $q) {
+                    return $q(function (resolve, reject) {
+                        Auth.$requireAuth().then(reject).catch(resolve);
+                    })
+                }]
+            }
         });
 
         $stateProvider.state('search', {
             url: '/search',
-            template: search
+            template: search,
+            resolve: {
+                "currentAuth": ["Auth", function (Auth) {
+                    return Auth.$requireAuth();
+                }]
+            },
+            controller: ['Auth', function (Auth) {
+                console.log('hey');
+                window.logout = Auth.$unauth;
+            }]
         });
 
         $stateProvider.state('results', {
             url: '/results',
-            template: results
+            template: results,
+            resolve: {
+                "currentAuth": ["Auth", function (Auth) {
+                    return Auth.$requireAuth();
+                }]
+            }
         });
 
     })
