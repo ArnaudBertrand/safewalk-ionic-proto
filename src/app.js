@@ -4,7 +4,7 @@ import ratings from './factory/ratings.factory';
 import users from './factory/users.factory';
 import auth from './factory/auth.factory';
 import ListCtrl from './controllers/list.ctrl';
-import {login, search, results} from './route';
+import {chat, login, search, results} from './route';
 
 require('./app.scss');
 import moment from 'moment';
@@ -34,6 +34,16 @@ const app = angular.module('safewalk', [
 
 app.config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/');
+
+        $stateProvider.state('chat', {
+            url: '/chat',
+            template: chat,
+            resolve: {
+              "currentAuth": ["Auth", function (Auth) {
+                return Auth.$requireAuth();
+              }]
+            }
+        });
 
         $stateProvider.state('login', {
             url: '/',
