@@ -1,7 +1,7 @@
 import angular from 'angular';
 require('./form.scss');
 
-function controller($scope, $http, $cordovaDatePicker) {
+function controller($scope, $cordovaDatePicker) {
     $scope.itinerary = {
         departure: '',
         arrival: '',
@@ -17,7 +17,7 @@ function controller($scope, $http, $cordovaDatePicker) {
     $scope.pickADate = () => {
         try {
             $cordovaDatePicker.show({
-                date: new Date(),
+                date: $scope.itinerary.day,
                 mode: 'date', // or 'time'
                 minDate: new Date(),
                 allowOldDates: false,
@@ -27,15 +27,29 @@ function controller($scope, $http, $cordovaDatePicker) {
                 cancelButtonLabel: 'Annuler',
                 cancelButtonColor: '#000000'
             }).then(function(date){
+                $scope.itinerary.day = moment(date);
                 console.log('selected date :', date);
             })
         } catch(err) {
             console.warn('Try native call in browser');
         }
-
     };
     $scope.pickATime = () => {
-        console.log('pick a time');
+        try {
+            $cordovaDatePicker.show({
+                date: $scope.itinerary.time,
+                mode: 'time',
+                doneButtonLabel: 'Valider',
+                doneButtonColor: '#F2F3F4',
+                cancelButtonLabel: 'Annuler',
+                cancelButtonColor: '#000000'
+            }).then(function(date){
+                $scope.itinerary.time = moment(date);
+                console.log('selected time :', date);
+            })
+        } catch(err) {
+            console.warn('Try native call in browser');
+        }
     };
 }
 
@@ -53,12 +67,12 @@ const template = `
   </label>
   <label class="item item-input item-floating-label">
     <i class="icon ion-calendar placeholder-icon"></i>
-    <span class="input-label">Date</span>
+    <span class="input-label has-input">Date</span>
     <input type="text" placeholder="Date" ng-value="itinerary.day.format('dddd Do MMMM YYYY')" ng-readonly="true" ng-click="pickADate()">
   </label>
   <label class="item item-input item-floating-label">
     <i class="icon ion-clock placeholder-icon"></i>
-    <span class="input-label">Time</span>
+    <span class="input-label has-input">Time</span>
     <input type="text" placeholder="Heure de départ" ng-value="itinerary.time.format('HH:mm')" ng-readonly="true" ng-click="pickATime()">
   </label>
   <button class="button send" ng-click="send()">Trouver un co-walker</button>

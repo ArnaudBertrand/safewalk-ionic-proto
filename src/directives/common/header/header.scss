@@ -1,0 +1,40 @@
+/** Header **/
+.bar-header {
+  position: relative;
+  background-color: #25d7ab;
+}
+.tabs-top > .tabs {
+  color: #7e7e7e;
+  height: 72px;
+  border-bottom: 0;
+  position: initial;
+
+  .active {
+    color: #25d7ab;
+  }
+}
+
+.tabs-striped .tabs .tab-item.active {
+  border-color: #25d7ab;
+}
+
+
+.bar.bar-header {
+    height: 60px;
+
+    h1.title {
+        color: #ffffff;
+        text-align: left;
+        padding-left: 42px;
+        margin-top: 8px;
+    }
+
+    .profile-picture {
+        width: 35px;
+        height: 35px;
+        border: 1px #ffffff solid;
+        border-radius: 100000px;
+        margin-top: 9px;
+        margin-right: 9px;
+    }
+}
