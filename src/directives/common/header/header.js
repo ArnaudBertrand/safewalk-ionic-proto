@@ -1,6 +1,12 @@
 import angular from 'angular';
 require('./header.scss');
 
+function controller($scope, $state) {
+
+    $scope.state = $state.current;
+    console.log($state.current.name);
+}
+
 const template = `
 <div class="bar bar-header">
    <div class="buttons">
@@ -14,15 +20,15 @@ const template = `
 
 <div class="tabs-striped tabs-top">
   <div class="tabs">
-    <a class="tab-item active" href="#">
+    <a class="tab-item" ng-class="{active: state.name == 'search'}" ui-sref="search" nav-transition="none">
       <i class="icon ion-search"></i>
       Recherche
     </a>
-    <a class="tab-item" href="#">
+    <a class="tab-item" ng-class="{active: state.name == 'chat'}" ui-sref="chat" nav-transition="none">
       <i class="icon ion-chatbubble-working"></i>
       Chat
     </a>
-    <a class="tab-item" href="#">
+    <a class="tab-item" ng-class="{active: state.name == 'itineraries'}" ui-sref="itineraries" nav-transition="none">
       <i class="icon ion-map"></i>
       Mes itineraires
     </a>
@@ -32,6 +38,7 @@ const template = `
 
 export default angular.module('app.directives.common.header', [])
     .component('commonHeader', {
-      template
+        template,
+        controller
     })
     .name;
