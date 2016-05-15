@@ -31,7 +31,12 @@
     "cordova-plugin-whitelist",
     "cordova-plugin-inappbrowser"
   ],
-  "cordovaPlatforms": [],
+  "cordovaPlatforms": [
+    {
+      "platform": "android",
+      "locator": "browser"
+    }
+  ],
   "scripts": {
     "dev:watch": "webpack --progress --colors --watch"
   }

@@ -6,18 +6,19 @@ export default function AuthFactory($firebaseAuth, $rootScope, $state, Users, $t
         if (authData) {
             // if the user does not exists in the database, then create it
             Users
+                .firebase
                 .$loaded()
                 .then(() => {
-                    let users = Users.filter((user) => {
+                    let users = Users.firebase.filter((user) => {
                         return user.userId === authData.facebook.cachedUserProfile.id;
                     });
                     if (users.length === 0) {
                         Users
+                            .firebase
                             .$add({
                                 userId: authData.facebook.cachedUserProfile.id,
                                 firstname: authData.facebook.cachedUserProfile.first_name,
-                                lastname: authData.facebook.cachedUserProfile.last_name,
-                                email: authData.facebook.cachedUserProfile.email
+                                lastname: authData.facebook.cachedUserProfile.last_name
                             });
                     }
                 })

@@ -40,7 +40,7 @@ const app = angular.module('safewalk', [
 
 app.config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider.state('chat', {
-            url: '/chat',
+            url: '/chat/:userid',
             template: chat,
             resolve: {
               "currentAuth": ["Auth", function (Auth) {

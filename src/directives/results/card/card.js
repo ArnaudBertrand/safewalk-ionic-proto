@@ -7,24 +7,24 @@ function controller($scope) {
 
 const template = `
 <div class="container">
-  <img class="certified" src="${require('../../certification_small.png')}" ng-if="$ctrl.itinerary.certified" />
+  <img class="certified" src="${require('../../certification_small.png')}" ng-if="$ctrl.itinerary.user.certified" />
   <div class="left">
-    <div class="score"><strong>{{ $ctrl.itinerary.percent }}</strong></div>
+    <div class="score"><strong>{{ $ctrl.itinerary.percent }}%</strong></div>
     <div class="text-score">de trajet commun</div>
   </div>
 
   <div class="right">    
     <div class="content">
       <div class="profile">
-        <div class="profile-image"><img ng-src="{{ $ctrl.itinerary.image }}" /></div>
+        <div class="profile-image"><img ng-src="{{ $ctrl.itinerary.user.image }}" /></div>
 
         <div class="profile-name">
-          <div class="name">{{ $ctrl.itinerary.name }}</div>
+          <div class="name">{{ $ctrl.itinerary.user.name }}</div>
           <div class="age">
-            {{ $ctrl.itinerary.age }}
+            {{ $ctrl.itinerary.user.age }} ans
             <span class="rating">
-              <img ng-src="{{ $ctrl.itinerary.emoticon }}" />
-              {{ $ctrl.itinerary.rating }}
+              <img ng-src="{{ $ctrl.itinerary.user.emoticon }}" />
+              {{ $ctrl.itinerary.user.rating }}
             </span>
           </div>
         </div>

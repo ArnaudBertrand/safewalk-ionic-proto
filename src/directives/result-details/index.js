@@ -2,34 +2,34 @@ import angular from 'angular';
 require('./result-details.scss');
 
 function controller($scope, $stateParams, $ionicHistory, $state) {
+  $scope.itinerary = $stateParams.itinerary;
+
   $scope.chat = () => {
     $ionicHistory.nextViewOptions({
       disableAnimate: true,
       disableBack: true
     });
-    $state.go('chat', {user: 'hello'});
+    $state.go('chat', {userid: $scope.itinerary.user.id});
   };
-
-  $scope.itinerary = $stateParams.itinerary;
 }
 
 const template = `
 <div class="container">
     <div class="card">
-        <img class="certified" src="${require('../certification.png')}" ng-if="itinerary.certified" />
+        <img class="certified" src="${require('../certification.png')}" ng-if="itinerary.user.certified" />
 
         <!-- Header -->
         <div class="header">
             <div class="profile">
-                <div class="profile-image"><img ng-src="{{ itinerary.image }}" /></div>
+                <div class="profile-image"><img ng-src="{{ itinerary.user.image }}" /></div>
     
                 <div class="profile-name">
-                    <div class="name">{{ itinerary.name }}</div>
+                    <div class="name">{{ itinerary.user.name }}</div>
                     <div class="age">
-                        {{ itinerary.age }}
+                        {{ itinerary.user.age }} ans
                         <span class="rating">
-                            <img ng-src="{{ itinerary.emoticon }}" />
-                            {{ itinerary.rating }}
+                            <img ng-src="{{ itinerary.user.emoticon }}" />
+                            {{ itinerary.user.rating }}
                         </span>
                     </div>
                 </div>
@@ -43,7 +43,7 @@ const template = `
 
         <!-- Check layer -->
         <div class="matching">
-            <div class="percent">61%</div>
+            <div class="percent">{{ itinerary.percent }}%</div>
             <div class="text">de trajet en commun</div>
             <div class="action"><button ng-click="chat()">Chat et match !</button></div>
         </div>

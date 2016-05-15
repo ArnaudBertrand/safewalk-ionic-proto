@@ -1,5 +1,9 @@
 .container {
   display: flex;
+
+  &.end {
+    justify-content: flex-end;
+  }
 }
 
 .imgContainer {

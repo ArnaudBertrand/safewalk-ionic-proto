@@ -1,21 +1,29 @@
 import angular from 'angular';
 require('./message.scss');
 
+function controller($scope, Users, $rootScope){
+  if (this.message.from) {
+    $scope.from = Users.get(this.message.from);
+  } else {
+    $scope.user = {image: `http://graph.facebook.com/${$rootScope.authData.facebook.id}/picture?type=square`};
+  }
+}
+
 const template = `
-<div class="container" ng-if="!$ctrl.message.left">
+<div class="container end" ng-if="from">
   <div class="message">
     <span class="arrow-left"></span>
     {{ $ctrl.message.content }}
   </div>
 
   <div class="imgContainer">
-    <img ng-src="{{$ctrl.message.img}}" />
+    <img ng-src="{{from.image}}" />
   </div>
 </div>
 
-<div class="container" ng-if="$ctrl.message.left">
+<div class="container" ng-if="user">
   <div class="imgContainer">
-    <img ng-src="{{$ctrl.message.img}}" />
+    <img ng-src="{{user.image}}" />
   </div>
 
   <div class="message">
@@ -30,6 +38,7 @@ export default angular.module('app.directives.chat.message', [])
       bindings: {
         message: '<'
       },
-      template
+      template,
+      controller
     })
     .name;
