@@ -11,7 +11,7 @@ function controller($scope, Users, $rootScope){
 
 const template = `
 <div class="container end" ng-if="from">
-  <div class="message">
+  <div class="message right">
     <span class="arrow-left"></span>
     {{ $ctrl.message.content }}
   </div>
