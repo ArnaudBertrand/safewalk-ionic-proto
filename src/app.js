@@ -95,13 +95,17 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         });
 
         $stateProvider.state('resultDetails', {
-            url: '/resultDetails',
-            template: resultDetails,
-            resolve: {
-                "currentAuth": ["Auth", function (Auth) {
-                    return Auth.$requireAuth();
-                }]
-            }
+          url: '/resultDetails',
+          cache: false,
+          template: resultDetails,
+          resolve: {
+              "currentAuth": ["Auth", function (Auth) {
+                  return Auth.$requireAuth();
+              }]
+          },
+          params: {
+            itinerary: {}
+          }
         });
 
     })

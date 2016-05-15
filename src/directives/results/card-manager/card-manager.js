@@ -35,12 +35,12 @@ function controller($scope, $ionicHistory, $state) {
         }
     ];
 
-    $scope.next= () => {
+    $scope.next = itinerary => {
         $ionicHistory.nextViewOptions({
             disableAnimate: true,
             disableBack: true
         });
-        $state.go('resultDetails', {});
+        $state.go('resultDetails', {itinerary}, {reload: true});
     };
 }
 
@@ -48,7 +48,7 @@ const template = `
 <div class="itin">Nice Ville — Malaussenna</div>
 <div class="datetime">18 Mai <span class="bullet">•</span> 20h45</div>
 <results-card ng-repeat="itinerary in itineraries" 
-                itinerary="itinerary" ng-click="next()">
+                itinerary="itinerary" ng-click="next(itinerary)">
 </results-card>
 `;
 
