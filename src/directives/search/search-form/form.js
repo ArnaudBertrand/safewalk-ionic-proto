@@ -78,7 +78,7 @@ const template = `
     <span class="input-label">Time</span>
     <input type="text" placeholder="Heure de départ" ng-value="itinerary.time.format('HH:mm')" ng-readonly="true" ng-click="pickATime()">
   </label>
-  <button class="button send" ng-click="send()">Trouver un co-walker</button>
+  <button class="button send" ng-click="send()">Trouver un Co-walker</button>
 </div>
 
 

@@ -11,5 +11,22 @@ itineraries {
     line-height: 1.3em;
     width: 70%;
     margin: 40% auto;
+    color: #7e7e7e;
+    display: block;
+
+    .icon {
+      font-size: 5em;
+    }
+  }
+
+
+  .button.ion-plus {
+    position: absolute;
+    bottom: 30px;
+    right: 10%;
+    background: #25d7ab;
+    font-weight: bold;
+    color: white;
+    border-radius: 50%;
   }
 }

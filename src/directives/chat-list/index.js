@@ -1,7 +1,15 @@
 import angular from 'angular';
 require('./chat-list.scss');
 
-function controller($scope, Messages, Users) {
+function controller($scope, Messages, Users, $ionicHistory, $state) {
+  $scope.goTo = userid => {
+    $ionicHistory.nextViewOptions({
+      disableAnimate: true,
+      disableBack: true
+    });
+    $state.go('chat', {userid});
+  };
+
   $scope.$watchCollection(
       () => Messages.getAll(),
       messages => {
@@ -30,10 +38,13 @@ function controller($scope, Messages, Users) {
 }
 
 const template = `
-<div class="empty-container" ng-if="!chats || !chats.length">Vous n'avez aucune discussion en cours...</div>
+<div class="empty-container" ng-if="!chats || !chats.length">
+    <i class="ion icon ion-chatbox-working"></i>
+    <div>Vous n'avez aucune discussion en cours...</div>
+</div>
 
 <div class="list" ng-if="chats && chats.length">
-    <a class="item item-avatar" ng-repeat="chat in chats">
+    <a class="item item-avatar" ng-repeat="chat in chats" ng-click="goTo(chat.user.id)">
       <img ng-src="{{chat.user.image}}">
       <h2>{{chat.user.name}}</h2>
       <p>{{chat.content}}</p>

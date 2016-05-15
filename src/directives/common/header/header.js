@@ -34,7 +34,7 @@ const template = `
 <div class="tabs-striped tabs-top">
   <div class="tabs">
     <a class="tab-item" ng-class="{active: state.name == 'search' || state.name == 'results'}" ui-sref="search" nav-transition="none">
-      <i class="icon ion-search"></i>
+      <i class="icon ion-ios-search-strong"></i>
       Recherche
     </a>
     <a class="tab-item" ng-class="{active: state.name == 'itineraries'}" ui-sref="itineraries" nav-transition="none">

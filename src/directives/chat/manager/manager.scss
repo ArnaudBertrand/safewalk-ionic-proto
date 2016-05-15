@@ -10,3 +10,17 @@ chat-message {
   display: block;
   width: 90%;
 }
+
+.no-message {
+  align-self: center;
+  text-align: center;
+  font-size: 1.8em;
+  line-height: 1.3em;
+  width: 70%;
+  margin: 40% auto;
+  color: #7e7e7e;
+
+  .icon {
+    font-size: 5em;
+  }
+}

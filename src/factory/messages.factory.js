@@ -6,24 +6,32 @@ export default function MessagesFactory ($firebaseArray, $timeout, Users) {
   function send(message, id) {
     messages.push({
       content: message,
-      to: id,
-      left: true
+      to: id
     });
 
-    //TODO
-    $timeout(() => {
-      messages.push({
-        from: id,
-        content: 'Oui bien sur !',
-        right: true
-      });
-    }, 3000);
+    // First message reply
+    if (messages.filter(mess => mess.to == id).length < 2) {
+      $timeout(() => {
+        messages.push({
+          from: id,
+          content: 'Bonjour Lisa'
+        });
+
+        // Second message
+        $timeout(() => {
+          messages.push({
+            from: id,
+            content: 'Oui ! On y va ensemble?'
+          })
+        }, 1000);
+      }, 3000);
+    }
   }
 
   function getAllFrom(id) {
     return messages.filter(mess => mess.from == id || mess.to == id);
   }
-  
+
   function getAll() {
     return messages;
   }

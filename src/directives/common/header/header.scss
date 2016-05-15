@@ -12,6 +12,10 @@
   .active {
     color: #25d7ab;
   }
+
+  .ion-chatbubble-working {
+    transform: scale(-1, 1);
+  }
 }
 
 .tabs-striped .tabs .tab-item.active {

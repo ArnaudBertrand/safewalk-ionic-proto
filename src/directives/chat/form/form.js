@@ -3,7 +3,6 @@ require('./form.scss');
 
 function controller($scope) {
   $scope.sendMess = message => {
-    console.log('test: ', message);
     this.send({message: message});
     $scope.message = '';
   }

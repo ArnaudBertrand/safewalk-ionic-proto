@@ -15,3 +15,7 @@ ion-view {
 .scroll {
   transform: none !important;
 }
+
+.button:active {
+  box-shadow: 1px 2px 3px 0px #9b9b9b !important;
+}

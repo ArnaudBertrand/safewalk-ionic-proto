@@ -16,6 +16,10 @@ function controller($scope, Messages, $stateParams) {
 
 const template = `
 <chat-message ng-repeat="message in messages" message="message"></chat-message>
+<div ng-if="!messages.length" class="no-message">
+    <i class="ion icon ion-chatbox-working"></i>
+    <div>Aucun messages...</div>
+</div>
 <chat-form send="send(message)"></chat-form>
 `;
 
