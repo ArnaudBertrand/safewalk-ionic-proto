@@ -1,6 +1,6 @@
 export const chat = `
 <ion-view>
-    <common-header text="'Chat avec Jean-Yves'"></common-header>
+    <common-header text="'Chat avec Baptiste'"></common-header>
     <chat-manager></chat-manager>
 </ion-view>
 `;
@@ -9,6 +9,13 @@ export const chatList = `
 <ion-view>
     <common-header text="'Mes messages'"></common-header>
     <chat-list></chat-list>
+</ion-view>
+`;
+
+export const itineraries = `
+<ion-view>
+    <common-header text="'Mes itineraires'"></common-header>
+    <itineraries></itineraries>
 </ion-view>
 `;
 

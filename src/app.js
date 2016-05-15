@@ -1,10 +1,10 @@
-import itineraries from './factory/itineraries.factory';
+import itinerariesFactory from './factory/itineraries.factory';
 import messages from './factory/messages.factory';
 import ratings from './factory/ratings.factory';
 import users from './factory/users.factory';
 import auth from './factory/auth.factory';
 import ListCtrl from './controllers/list.ctrl';
-import {chat, chatList, login, search, results, resultDetails} from './route';
+import {chat, chatList, login, search, results, resultDetails, itineraries} from './route';
 
 require('./app.scss');
 import moment from 'moment';
@@ -18,6 +18,7 @@ window.moment = moment;
 import Chat from './directives/chat';
 import ChatList from './directives/chat-list';
 import Common from './directives/common';
+import Itineraries from './directives/itineraries';
 import Results from './directives/results';
 import ResultDetails from './directives/result-details';
 import Search from './directives/search';
@@ -32,6 +33,7 @@ const app = angular.module('safewalk', [
     Chat,
     ChatList,
     Common,
+    Itineraries,
     Results,
     ResultDetails,
     Search,
@@ -52,6 +54,16 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider.state('chatlist', {
             url: '/chatlist',
             template: chatList,
+            resolve: {
+              "currentAuth": ["Auth", function (Auth) {
+                return Auth.$requireAuth();
+              }]
+            }
+        });
+
+        $stateProvider.state('itineraries', {
+            url: '/itineraries',
+            template: itineraries,
             resolve: {
               "currentAuth": ["Auth", function (Auth) {
                 return Auth.$requireAuth();
@@ -130,7 +142,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         // To use it when we need to logout
     })
     .factory('Auth', auth)
-    .factory('Itineraries', itineraries)
+    .factory('Itineraries', itinerariesFactory)
     .factory('Users', users)
     .factory('Messages', messages)
     .factory('Ratings', ratings)
