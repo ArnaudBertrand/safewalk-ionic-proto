@@ -10,11 +10,11 @@ function controller($scope) {
 
 const template = `
 <div class="container list">
-  <label class="item item-input">
+  <div class="item item-input">
     <input type="text" placeholder="Ecrire un message..." 
         ng-model="message" ng-keyup="$event.keyCode == 13 && sendMess(message)">
     <i class="icon ion-paper-airplane placeholder-icon" ng-click="sendMess(message)"></i>
-  </label>
+  </div>
 </div>
 `;
 

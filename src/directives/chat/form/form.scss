@@ -5,6 +5,11 @@ chat-form {
     bottom: 0;
     width: 100%;
 
+    .item.item-input{
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+
     .icon {
       font-size: 2em;
       color: #25d7ab;
