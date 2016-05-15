@@ -10,6 +10,7 @@ export default function MessagesFactory ($firebaseArray, $timeout, Users) {
       left: true
     });
 
+    //TODO
     $timeout(() => {
       messages.push({
         from: id,
@@ -17,16 +18,20 @@ export default function MessagesFactory ($firebaseArray, $timeout, Users) {
         right: true
       });
     }, 3000);
-
-    console.log(messages);
   }
 
   function getAllFrom(id) {
     return messages.filter(mess => mess.from == id || mess.to == id);
   }
+  
+  function getAll() {
+    return messages;
+  }
+
   return {
     send,
     getAllFrom,
+    getAll,
     firebase: $firebaseArray(itemsRef)
   };
 }
