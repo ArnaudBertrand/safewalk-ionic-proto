@@ -30,9 +30,9 @@ function controller($scope, Messages, Users) {
 }
 
 const template = `
-<div class="empty-container" ng-if="!chats">Vous n'avez aucune discussion en cours...</div>
+<div class="empty-container" ng-if="!chats || !chats.length">Vous n'avez aucune discussion en cours...</div>
 
-<div class="list" ng-if="chats">
+<div class="list" ng-if="chats && chats.length">
     <a class="item item-avatar" ng-repeat="chat in chats">
       <img ng-src="{{chat.user.image}}">
       <h2>{{chat.user.name}}</h2>

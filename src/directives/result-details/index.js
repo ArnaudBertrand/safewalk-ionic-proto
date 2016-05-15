@@ -14,6 +14,7 @@ function controller($scope, $stateParams, $ionicHistory, $state) {
 }
 
 const template = `
+<ion-slide>
 <div class="container">
     <div class="card">
         <img class="certified" src="${require('../certification.png')}" ng-if="itinerary.user.certified" />
@@ -54,7 +55,17 @@ const template = `
         </div>
     </div>
 </div>
-
+<!-- Advertisement -->
+<div class="ads">
+    <div class="image"><img src="${require('./patisserie.jpg')}" /></div>
+        <div class="info">
+            <div class="title">Patisserie Margaux</div>
+            <div class="address">150, rue Trachel, 06000 Nice</div>
+            <div>Patisseries maisons. Mariage, evenements etc.</div>
+        </div>
+    </div>
+</div>
+</ion-slide>
 `;
 
 const ResultDetailsModule = angular.module('app.directives.resultDetails', [])

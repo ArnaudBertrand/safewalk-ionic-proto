@@ -125,3 +125,27 @@ result-details {
     }
   }
 }
+
+.ads {
+  width: 100%;
+  display: flex;
+  background: #3a3a3a;
+  padding: 15px 20px;
+  color: white;
+  align-items: center;
+
+  .image {
+    margin-right: 15px;
+    width: 70px;
+    overflow:hidden;
+    border: 1px solid white;
+    align-self: flex-start;
+
+    img {width: 100%;}
+  }
+
+  .info {
+    .title { font-size: 24px; }
+    .address { font-size: 12px; margin-bottom: 5px}
+  }
+}
